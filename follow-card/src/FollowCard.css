@@ -1,33 +1,18 @@
 .yq-followCard {
-
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #252525;
-  padding: 1rem;
   border-radius: 12px;
-  color: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  box-shadow: 0 4px 10px #cee9ff;
-  max-width: 400px;
-  margin: 1rem auto;
-}
-.yq-followCard:hover {
-  background-color: #2d3f4e;
-  box-shadow: 0 4px 10px  #2f8fcf;
-
+  
+  border: #000 solid 1px;
+  align-items: center;
+  color: #fff;
+  font-size: .8rem;
+  justify-content: space-between;
 }
 
 .yq-followCard-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
-
-.yq-followCard-img {
-  width: 45px;
-  height: 45px;
-  border-radius: 999px;
+  gap: 4px
 }
 
 .yq-followCard-info {
@@ -35,26 +20,50 @@
   flex-direction: column;
 }
 
-.yq-followCard-info-name {
-  font-weight: bold;
-  color: #c9f3ff;
+.yq-followCard-infoUserName {
+  opacity: .6;
 }
 
-.yq-followCard-a {
-  text-decoration: none;
+.yq-followCard-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 1000px;
 }
 
 .yq-followCard-button {
   cursor: pointer;
-  border: none;
+  margin-left: 16px;
+  border: 0;
   border-radius: 999px;
-  padding: 0.5rem 1.25rem;
-  background-color: #35bfff;
-  color: white;
+  padding: 6px 16px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  border: 1px solid #000;
+  transition: .3s ease background-color;
 }
 
 .yq-followCard-button:hover {
-  background-color: #1585a7;
+  opacity: .8;
+}
+
+.yq-followCard-text {
+  display: block;
+}
+
+.yq-followCard-button.is-following {
+  border: 1px solid #bbb;
+  background: transparent;
+  color: #fff;
+  width: 140px;
+}
+
+.yq-followCard-button.is-following:hover {
+  background-color: rgba(255, 0, 0, 0.178);
+  color: red;
+  border: 1px solid red;
+  transition: .3s ease all;
+  opacity: 1;
+}
+
+.yq-followCard-button.is-following:hover .tw-followCard-text {
+  display: none;
 }

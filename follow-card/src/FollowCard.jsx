@@ -1,30 +1,36 @@
+import React from 'react';
 import './FollowCard.css';
 
-export function FollowCard({username, name, isFollowing}) {
+export function FollowCard({ username, name, isFollowing: initialIsFollowing }) {
+  const [isFollowing, setIsFollowing] = React.useState(initialIsFollowing);
+
+  const handleClick = () => {
+    setIsFollowing(!isFollowing);
+  };
+
+  const buttonClassName = isFollowing
+    ? 'yq-followCard-button is-following'
+    : 'yq-followCard-button';
+
+  const buttonText = isFollowing ? 'Siguiendo' : 'Seguir';
+
   return (
     <article className="yq-followCard">
       <header className="yq-followCard-header">
         <img
-          className="yq-followCard-img"
-          alt="Avatar"
+          className="yq-followCard-avatar"
+          alt={`Avatar de ${username}`}
           src={`https://unavatar.io/github/${username}`}
         />
         <div className="yq-followCard-info">
-          <strong className="yq-followCard-info-name">
-            {name} 
-          </strong>
-          <span>@{username} </span>
+          <strong>{name}</strong>
+          <span className="yq-followCard-infoUserName">@{username}</span>
         </div>
       </header>
       <aside>
-        <a
-          href={`https://github.com/${username}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="yq-followCard-a"
-        >
-          <button className="yq-followCard-button">Follow</button>
-        </a>
+        <button className={buttonClassName} onClick={handleClick}>
+          <span className="yq-followCard-text">{buttonText}</span>
+        </button>
       </aside>
     </article>
   );
